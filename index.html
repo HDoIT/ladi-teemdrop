@@ -3,7 +3,7 @@
 
 <head>
     <meta charSet="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preload"
         href="https://readdy.link/preview/101037dc-e8f9-490a-8d40-b94cef844eb7/1013603/_next/static/media/1b3800ed4c918892-s.p.woff2"
         as="font" crossorigin="" type="font/woff2" />
@@ -55,7 +55,36 @@
         noModule=""></script>
 
     <style>
-        /* CSS cho header */
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            /* Ngăn chặn tràn ngang */
+            box-sizing: border-box;
+        }
+
+        *,
+        *:before,
+        *:after {
+            box-sizing: inherit;
+        }
+
+        /* Sửa lỗi chia đôi màn hình */
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Đảm bảo section chiếm đủ không gian */
+        .main-section {
+            flex: 1;
+            position: relative;
+        }
+
         .header-container {
             position: relative;
             width: 100%;
@@ -63,7 +92,6 @@
             background: linear-gradient(to bottom right, #4f46e5, #1e40af, #3730a3);
         }
 
-        /* Container chứa các nút */
         .button-group {
             position: absolute;
             right: 20px;
@@ -73,7 +101,6 @@
             gap: 15px;
         }
 
-        /* Nút Login */
         .login-btn {
             background: white;
             color: #333;
@@ -85,7 +112,6 @@
             animation: pulse 1.3s infinite;
         }
 
-        /* Nút Sign Up */
         .signup-btn {
             background: rgb(250, 204, 21);
             color: #333;
@@ -97,11 +123,11 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             animation: pulse 1.3s infinite;
         }
+
         .btn-pulse {
             animation: pulse 1.3s infinite;
         }
 
-        /* Hiệu ứng pulse */
         @keyframes pulse {
             0% {
                 transform: scale(1);
@@ -116,7 +142,6 @@
             }
         }
 
-        /* Hiệu ứng hover */
         .login-btn:hover {
             background: #f1f1f1;
         }
@@ -133,7 +158,19 @@
             display: block;
         }
 
-        
+        @media (max-width: 768px) {
+            #button-section-1{
+                font-size: 14px !important;
+            }
+
+            #button-section-2{
+                font-size: 16px !important;
+            }
+
+            #button-section-3{
+                font-size: 16px !important;
+            }
+        }
     </style>
 
 </head>
@@ -186,9 +223,13 @@
                             <p class="text-lg text-red-200">You’re not alone<span class="font-bold">— 90% of POD
                                     sellers</span> are stuck just like you. Every month you burn money on Printify
                                 Premium — yet no real sales come in.</p>
-                        </div><a href="https://www.creativefabrica.com/ref/14381268/"
-                            class="btn-pulse bg-gradient-to-r from-green-500 to-emerald-600 text-white px-8 py-4 rounded-full text-xl font-bold hover:from-green-600 hover:to-emerald-700 transition-all duration-300 transform hover:scale-105 shadow-lg whitespace-nowrap cursor-pointer">🚀
+                        </div>
+                        <a href="https://www.creativefabrica.com/ref/14381268/"
+                            class="btn-pulse bg-gradient-to-r from-green-500 to-emerald-600 text-white px-8 py-4 rounded-full text-xl font-bold hover:from-green-600 hover:to-emerald-700 transition-all duration-300 transform hover:scale-105 shadow-lg whitespace-nowrap cursor-pointer block mx-auto">🚀
                             SIGN UP TEEMDROP FREE</a>
+                        <!-- <a href="https://www.creativefabrica.com/ref/14381268/"
+                            class="btn-pulse bg-gradient-to-r from-green-500 to-emerald-600 text-white px-8 py-4 rounded-full text-xl font-bold hover:from-green-600 hover:to-emerald-700 transition-all duration-300 transform hover:scale-105 shadow-lg whitespace-nowrap cursor-pointer">🚀
+                            SIGN UP TEEMDROP FREE</a> -->
                     </div>
                     <div class="lg:w-1/2 flex justify-center"><img src="/compare_POD_Teemdrop.png"
                             alt="POD Business Comparison" class="rounded-2xl shadow-2xl max-w-md w-full object-cover" />
@@ -569,7 +610,7 @@
                         <div class="bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl p-8 text-white">
                             <h3 class="text-2xl font-bold mb-4">🚀 Join 10,000+ Successful Sellers Worldwide</h3>
                             <p class="text-xl mb-6 text-blue-100">Stop struggling with Printify alone - let TeemDrop
-                                handle the design work while you focus on scaling your business</p><button
+                                handle the design work while you focus on scaling your business</p><button id="button-section-1"
                                 class="btn-pulse bg-yellow-400 text-black px-10 py-4 rounded-full text-xl font-bold hover:bg-yellow-300 transition-all duration-300 transform hover:scale-105 whitespace-nowrap cursor-pointer">START
                                 YOUR SUCCESS STORY</button>
                         </div>
@@ -608,7 +649,7 @@
                                 class="btn-pulse bg-yellow-400 text-black px-8 py-4 rounded-full text-lg font-bold hover:bg-yellow-300 transition-all duration-300 transform hover:scale-105 whitespace-nowrap cursor-pointer">GET
                                 NOW! 🎁</button></div>
                     </form>
-                    <div class="space-y-4"><button
+                    <div class="space-y-4"><button id="button-section-3"
                             class="btn-pulse bg-gradient-to-r from-yellow-400 to-orange-500 text-black px-12 py-6 rounded-full text-2xl font-bold hover:from-yellow-300 hover:to-orange-400 transition-all duration-300 transform hover:scale-105 shadow-xl whitespace-nowrap cursor-pointer block mx-auto">🚀
                             SIGN UP TEEMDROP FREE</button>
                         <p class="text-xl text-green-100">👆 Get mockups right after signing up!</p>
@@ -620,9 +661,11 @@
                             <p class="text-xl mb-6 text-blue-100">Stop giving up just because your mockups suck and your
                                 designs flop -
                                 Let TeemDrop make you go viral from day one.
-                            </p><button
-                                class="btn-pulse bg-yellow-400 text-black px-10 py-4 rounded-full text-xl font-bold hover:bg-yellow-300 transition-all duration-300 transform hover:scale-105 whitespace-nowrap cursor-pointer">CREATE
-                                YOUR TEEMDROP ACCOUNT NOW — 100% FREE</button>
+                            </p>
+                            <button
+                                class="btn-pulse bg-yellow-400 text-black md:px-10 px-6 md:py-4 py-3 rounded-full md:text-xl text-lg font-bold hover:bg-yellow-300 transition-all duration-300 transform hover:scale-105 md:whitespace-nowrap whitespace-normal cursor-pointer">
+                                CREATE YOUR TEEMDROP ACCOUNT NOW — 100% FREE
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -764,7 +807,7 @@
                         </div> -->
                     </div>
                     <div class="text-center mt-12">
-                        <p class="text-gray-600 mb-6">Still have questions? We&#x27;re here to help!</p><button
+                        <p class="text-gray-600 mb-6">Still have questions? We&#x27;re here to help!</p><button 
                             class="btn-pulse bg-gradient-to-r from-purple-600 to-indigo-600 text-white px-8 py-3 rounded-full font-semibold hover:from-purple-700 hover:to-indigo-700 transition-all duration-300 transform hover:scale-105 whitespace-nowrap cursor-pointer">Contact
                             Support</button>
                     </div>
@@ -780,7 +823,7 @@
                         <p class="text-xl text-gray-300">Test fast, fail cheap, scale strong</p>
                     </div>
                     <div class="bg-gradient-to-r from-purple-600 to-blue-600 rounded-2xl p-8 mb-12">
-                        <h3 class="text-2xl font-bold mb-4">Ready to change the POD game?</h3><button
+                        <h3 class="text-2xl font-bold mb-4">Ready to change the POD game?</h3><button  id="button-section-2"
                             class="btn-pulse bg-yellow-400 text-black px-10 py-4 rounded-full text-xl font-bold hover:bg-yellow-300 transition-all duration-300 transform hover:scale-105 whitespace-nowrap cursor-pointer">👉
                             SIGN UP FREE NOW!</button>
                     </div>
