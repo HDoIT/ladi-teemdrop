@@ -4,6 +4,49 @@
 <head>
     <meta charSet="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Thêm các thẻ meta SEO mới -->
+    <meta name="description"
+        content="Discover how TeemDrop helps POD sellers succeed with ready-made designs, auto-generated mockups and seamless integration. Start your free account today!" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://printify.pw/" />
+    <meta property="og:title" content="TeemDrop - The Complete POD Solution for Print-on-Demand Sellers" />
+    <meta property="og:description"
+        content="Stop struggling with Printify alone. TeemDrop provides everything you need to succeed in POD business - designs, mockups and automation." />
+    <meta property="og:image" content="https://printify.pw/images/teemdrop-social-share.jpg" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://printify.pw/" />
+    <meta name="twitter:title" content="TeemDrop - The Complete POD Solution for Print-on-Demand Sellers" />
+    <meta name="twitter:description"
+        content="Stop struggling with Printify alone. TeemDrop provides everything you need to succeed in POD business - designs, mockups and automation." />
+    <meta name="twitter:image" content="https://printify.pw/images/teemdrop-social-share.jpg" />
+
+    <link rel="canonical" href="https://printify.pw/" />
+
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" href="/images/logo.png" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "TeemDrop",
+      "url": "https://printify.pw",
+      "logo": "https://printify.pw/images/logo.jpg",
+      "description": "The complete POD solution for print-on-demand sellers",
+      "sameAs": [
+        "https://facebook.com/teemdrop",
+        "https://twitter.com/teemdrop",
+        "https://instagram.com/teemdrop"
+      ]
+    }
+    </script>
     <link rel="preload"
         href="https://readdy.link/preview/101037dc-e8f9-490a-8d40-b94cef844eb7/1013603/_next/static/media/1b3800ed4c918892-s.p.woff2"
         as="font" crossorigin="" type="font/woff2" />
@@ -62,7 +105,6 @@
             margin: 0;
             padding: 0;
             overflow-x: hidden;
-            /* Ngăn chặn tràn ngang */
             box-sizing: border-box;
         }
 
@@ -72,14 +114,12 @@
             box-sizing: inherit;
         }
 
-        /* Sửa lỗi chia đôi màn hình */
         body {
             display: flex;
             flex-direction: column;
             min-height: 100vh;
         }
 
-        /* Đảm bảo section chiếm đủ không gian */
         .main-section {
             flex: 1;
             position: relative;
@@ -90,64 +130,105 @@
             width: 100%;
             height: 60px;
             background: linear-gradient(to bottom right, #4f46e5, #1e40af, #3730a3);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 15%;
+        }
+
+        .logo-container {
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            height: 70px;
+            width: auto;
+            object-fit: contain;
         }
 
         .button-group {
-            position: absolute;
-            right: 20px;
-            top: 50%;
-            transform: translateY(-50%);
             display: flex;
             gap: 15px;
         }
 
         .login-btn {
-            background: white;
+            background: rgba(255, 255, 255, 0.9);
             color: #333;
             border: none;
             padding: 8px 20px;
             border-radius: 6px;
             font-weight: 500;
             cursor: pointer;
-            animation: pulse 1.3s infinite;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            animation: pulse 1.3s infinite ease-in-out;
         }
 
         .signup-btn {
-            background: rgb(250, 204, 21);
-            color: #333;
+            background: linear-gradient(to right, #f59e0b, #fbbf24);
+            color: #1f2937;
             border: none;
-            padding: 8px 20px;
+            padding: 10px 25px;
             border-radius: 6px;
-            font-weight: 500;
+            font-weight: 600;
             cursor: pointer;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            animation: pulse 1.3s infinite;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15), 0 1px 3px rgba(0, 0, 0, 0.08);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            animation: shakePulse 0.5s infinite;
+        }
+
+        .signup-btn:hover {
+            background: linear-gradient(to right, #fbbf24, #fcd34d);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2), 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .login-btn:hover {
+            background: rgba(255, 255, 255, 1);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1) translateY(0);
+            }
+
+            50% {
+                transform: scale(1.05) translateY(-2px);
+            }
+
+            100% {
+                transform: scale(1) translateY(0);
+            }
         }
 
         .btn-pulse {
             animation: pulse 1.3s infinite;
         }
 
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
+        @keyframes shakePulse {
+
+            0%,
+            100% {
+                transform: scale(1) rotate(0deg);
+            }
+
+            25% {
+                transform: scale(1.1) rotate(-3deg);
             }
 
             50% {
-                transform: scale(1.15);
+                transform: scale(1.15) rotate(3deg);
             }
 
-            100% {
-                transform: scale(1);
+            75% {
+                transform: scale(1.1) rotate(-2deg);
             }
-        }
-
-        .login-btn:hover {
-            background: #f1f1f1;
-        }
-
-        .signup-btn:hover {
-            background: rgb(252, 211, 77);
         }
 
         .px-8.pb-6 {
@@ -159,16 +240,34 @@
         }
 
         @media (max-width: 768px) {
-            #button-section-1{
+            .header-container {
+                padding: 0 15px;
+            }
+
+            .logo {
+                height: 65px;
+            }
+
+            #button-section-1 {
                 font-size: 14px !important;
             }
 
-            #button-section-2{
+            #button-section-2 {
                 font-size: 16px !important;
             }
 
-            #button-section-3{
+            #button-section-3 {
                 font-size: 16px !important;
+            }
+
+            .login-btn,
+            .signup-btn {
+                padding: 6px 15px;
+                font-size: 14px;
+            }
+
+            .signup-btn {
+                padding: 8px 20px;
             }
         }
     </style>
@@ -178,11 +277,15 @@
 <body class="__variable_bdabd5 __variable_56ba12 __variable_78f221 antialiased">
     <main>
         <section class="header-container">
+            <div class="logo-container">
+                <img src="/images/logo.png" alt="TeemDrop Logo" class="logo">
+            </div>
             <div class="button-group">
                 <a href="https://try.printify.com/vya45mgxziva" class="login-btn">Login</a>
                 <a href="https://www.creativefabrica.com/ref/14381268/" class="signup-btn">Sign Up</a>
             </div>
         </section>
+
         <!-- <section class="relative bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900">
             <div class="container mx-auto px-4 py-4">
                 <div class="flex justify-end items-center">
@@ -610,7 +713,8 @@
                         <div class="bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl p-8 text-white">
                             <h3 class="text-2xl font-bold mb-4">🚀 Join 10,000+ Successful Sellers Worldwide</h3>
                             <p class="text-xl mb-6 text-blue-100">Stop struggling with Printify alone - let TeemDrop
-                                handle the design work while you focus on scaling your business</p><button id="button-section-1"
+                                handle the design work while you focus on scaling your business</p><button
+                                id="button-section-1"
                                 class="btn-pulse bg-yellow-400 text-black px-10 py-4 rounded-full text-xl font-bold hover:bg-yellow-300 transition-all duration-300 transform hover:scale-105 whitespace-nowrap cursor-pointer">START
                                 YOUR SUCCESS STORY</button>
                         </div>
@@ -631,7 +735,7 @@
                             </div>
                             <div class="text-center">
                                 <div class="text-5xl mb-4">💡</div>
-                                <h3 class="text-xl font-bold mb-2">50 hot t-shirt ideas for 2024.</h3>
+                                <h3 class="text-xl font-bold mb-2">50 hot t-shirt ideas for 2025.</h3>
                                 <p class="text-green-100">Hottest 2025 designs</p>
                             </div>
                             <div class="text-center">
@@ -807,7 +911,7 @@
                         </div> -->
                     </div>
                     <div class="text-center mt-12">
-                        <p class="text-gray-600 mb-6">Still have questions? We&#x27;re here to help!</p><button 
+                        <p class="text-gray-600 mb-6">Still have questions? We&#x27;re here to help!</p><button
                             class="btn-pulse bg-gradient-to-r from-purple-600 to-indigo-600 text-white px-8 py-3 rounded-full font-semibold hover:from-purple-700 hover:to-indigo-700 transition-all duration-300 transform hover:scale-105 whitespace-nowrap cursor-pointer">Contact
                             Support</button>
                     </div>
@@ -823,7 +927,8 @@
                         <p class="text-xl text-gray-300">Test fast, fail cheap, scale strong</p>
                     </div>
                     <div class="bg-gradient-to-r from-purple-600 to-blue-600 rounded-2xl p-8 mb-12">
-                        <h3 class="text-2xl font-bold mb-4">Ready to change the POD game?</h3><button  id="button-section-2"
+                        <h3 class="text-2xl font-bold mb-4">Ready to change the POD game?</h3><button
+                            id="button-section-2"
                             class="btn-pulse bg-yellow-400 text-black px-10 py-4 rounded-full text-xl font-bold hover:bg-yellow-300 transition-all duration-300 transform hover:scale-105 whitespace-nowrap cursor-pointer">👉
                             SIGN UP FREE NOW!</button>
                     </div>
@@ -857,7 +962,7 @@
                         </div>
                     </div>
                     <div class="border-t border-gray-700 pt-8">
-                        <p class="text-gray-400">© 2024 TeemDrop. All rights reserved.</p>
+                        <p class="text-gray-400">© 2025 TeemDrop. All rights reserved.</p>
                         <p class="text-sm text-gray-500 mt-2">Complete POD solution for sellers worldwide</p>
                     </div>
                 </div>
